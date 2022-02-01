@@ -25,6 +25,7 @@ export default function Textform(props) {
       var text=document.getElementById("myBox")
       text.select();
       navigator.clipboard.writeText(text.value)
+      document.getSelection().removeAllRanges()
       props.showAlert('text copied to clipboard','success')
 
     }
@@ -47,15 +48,15 @@ export default function Textform(props) {
             
             placeholder='Enter Your Text' ></textarea>
         </div>
-        <button className="btn btn-primary m-2" onClick={handleUpClick} >Convert to UpperCase</button>
-        <button className="btn btn-primary m-2" onClick={handleDownClick} >Convert to Lowercase</button>
-        <button className="btn btn-primary m-2" onClick={handleOnCopy} >Copy Text</button>
-        <button className="btn btn-primary m-2" onClick={handleOnClear} >Clear Text</button>
+        <button disabled ={text.length===0} className="btn btn-primary m-2" onClick={handleUpClick} >Convert to UpperCase</button>
+        <button disabled ={text.length===0} className="btn btn-primary m-2" onClick={handleDownClick} >Convert to Lowercase</button>
+        <button disabled ={text.length===0} className="btn btn-primary m-2" onClick={handleOnCopy} >Copy Text</button>
+        <button disabled ={text.length===0} className="btn btn-primary m-2" onClick={handleOnClear} >Clear Text</button>
      </div>
 
      <div className="container">
        <h1>Your Text Summary:</h1>
-       <h3>No. of Words : {text.split(" ").filter((element)=>{return element.length!==0}).length}</h3>
+       <h3>No. of Words : {text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</h3>
        <h3>No. of characters : {text.length}</h3>
        <h3>Time to read : {text.length/125} Min</h3>
        <h3>Preview: </h3>

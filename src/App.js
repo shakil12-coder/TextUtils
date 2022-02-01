@@ -2,16 +2,16 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
-// import About from './components/About';
+import About from './components/About';
 import React , { useState } from 'react';
 import Alert from './components/Alert'
 
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
   
-// } from "react-router-dom";
+} from "react-router-dom";
 
 function App() {
   const [mode,setMode]=useState('light')
@@ -41,13 +41,7 @@ function App() {
       document.title="TextUtils-darkMode"
 
 
-      // setInterval(() => {
-      //   document.title="virus detected"
-      // }, 500)
-
-      // setInterval(() => {
-      //   document.title="update now"
-      // }, 1500)
+     
 
     }
     else{
@@ -66,20 +60,20 @@ function App() {
       {/* <Navbar/> */}
       {/* <Navbar title="TextUtils"/> */}    {/*   about are from default type */ } 
       
-        {/* <Router> */}
+        <Router>
               <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleMode={toggleMode} theme={theme}/> 
               <Alert alert={alert}/>
              
-          {/* <Switch>
+          <Switch>
           <Route exact path="/about">
                 <About mode={mode}/>
             </Route>
-          <Route exact path="/"> */}
+          <Route exact path="/">
                 <Textform showAlert={showAlert} heading="Enter the text to analyze below:" mode={mode} />
-            {/* </Route>
+            </Route>
           </Switch>
 
-        </Router> */}
+        </Router>
 
 
      </>

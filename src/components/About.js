@@ -5,7 +5,7 @@ function About(props) {
 
  
  let myStyle={
-     color:props.mode==='dark'?'white':'black',
+     color:props.mode==='dark'?'white':'#042743',
      backgroundColor:props.mode==='dark'?'rgb(36,74,104)':'white',
      border:props.mode==='dark'? '1px solid white':'1x solid black'
  }
@@ -15,7 +15,7 @@ function About(props) {
   
   return (
       <div className="container my-3" >
-        <h1 className='container' style={{color:props.mode==='dark'?'white':'dark'}}>About Us</h1>
+        <h1 className='container' style={{color:props.mode==='light'?'042743':'white'}}>About Us</h1>
           <div className="accordion" id="accordionExample">
             <div className="accordion-item" style={myStyle}>
                 <h2 className="accordion-header" id="headingOne">
